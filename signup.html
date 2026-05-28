@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrati - Amici di Ciotola</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="card">
+        <div class="logo-container">
+            <img src="logo verticale.png" alt="Amici di Ciotola">
+        </div>
+        <h2>Unisciti alla missione</h2>
+        <form id="signupForm">
+            <div class="sezione-form">1. Credenziali di Accesso</div>
+            <input type="email" id="email" placeholder="Email (es. info@tuomail.it)" required>
+            <input type="password" id="password" placeholder="Scegli una Password sicura" required>
+            
+            <div class="sezione-form">2. Tipo di Profilo</div>
+            <select id="tipo_utente" required>
+                <option value="A">👤 Privato (Adotta Ciotole)</option>
+                <option value="B">🏪 Negozio / Azienda (Carica Prodotti)</option>
+                <option value="C">🐾 Associazione (Riceve Donazioni)</option>
+            </select>
+            <button type="submit" class="btn-verde" id="signupBtn">Crea Account</button>
+        </form>
+        <div class="footer-links"><p>Hai già un account? <a href="index.html">Accedi</a></p></div>
+    </div>
+
+    <script>
+        const _supabase = supabase.createClient("https://esgzkoizauazzansczqp.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ3prb2l6YXVhenphbnNjenFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5Njg4MjgsImV4cCI6MjA5NTU0NDgyOH0.Zy_gwu-ChudRrkqs3U58CXrk_5mKthvbqpiGj_f-ukI");
+
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('signupBtn');
+            btn.innerText = "Registrazione...";
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const tipo = document.getElementById('tipo_utente').value;
+
+            const { data, error } = await _supabase.auth.signUp({ email, password });
+            if (error) {
+                alert(error.message);
+                btn.innerText = "Crea Account";
+                return;
+            }
+
+            if (data?.user) {
+                await _supabase.from('profili').insert([{ 
+                    id: data.user.id, 
+                    tipo_utente: tipo, 
+                    nome_pubblico: email.split('@')[0] 
+                }]);
+                alert("Registrazione completata!");
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
