@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Progetto - Amici di Ciotola</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap');
+        
+        body { background-color: #faf9f6; font-family: 'Outfit', sans-serif; margin: 0; padding: 0; color: #222; }
+        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        header img { height: 55px; width: auto; }
+        header a { color: #70b01a; text-decoration: none; font-weight: 700; font-size: 16px; border: 2px solid #70b01a; padding: 8px 20px; border-radius: 50px; transition: all 0.2s; }
+        header a:hover { background-color: #70b01a; color: white; }
+        
+        .hero { max-width: 900px; margin: 80px auto 40px auto; text-align: center; padding: 0 20px; }
+        h1 { color: #1A3017; font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 25px; }
+        h1 span { color: #70b01a; }
+        .lead-text { color: #555; font-size: 1.3rem; line-height: 1.8; max-width: 780px; margin: 0 auto 40px auto; }
+
+        .features-grid { display: flex; gap: 25px; max-width: 1000px; margin: 60px auto; padding: 0 20px; box-sizing: border-box; }
+        .feature-card { flex: 1; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.03); text-align: left; border-top: 4px solid #e0e0e0; }
+        .feature-card.privati { border-top-color: #70b01a; }
+        .feature-card.negozi { border-top-color: #1A3017; }
+        .feature-card.associazioni { border-top-color: #ffa726; }
+        .feature-card h3 { margin-top: 0; color: #1A3017; font-size: 20px; font-weight: 700; }
+        .feature-card p { color: #666; font-size: 15px; line-height: 1.6; }
+
+        .cta-bottom { text-align: center; margin: 60px 0 100px 0; }
+        .btn-cta { background-color: #70b01a; color: white; padding: 16px 40px; font-size: 18px; font-weight: 700; text-decoration: none; border-radius: 50px; display: inline-block; box-shadow: 0 6px 20px rgba(112, 176, 26, 0.3); transition: transform 0.2s; }
+        .btn-cta:hover { transform: translateY(-2px); background-color: #5fa014; }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo orizzontale.png" alt="Amici di Ciotola">
+        <a href="index.html">Accedi</a>
+    </header>
+
+    <div class="hero">
+        <h1>Ogni <span>ciotola</span> racconta una storia.</h1>
+        <p class="lead-text">In un mondo dove lo spreco è la norma, abbiamo scelto di creare un'eccezione. Amici di Ciotola nasce per trasformare l'eccedenza di cibo e risorse in una nuova opportunità di sostentamento per ogni animale.</p>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card privati">
+            <h3>👤 Per i Privati</h3>
+            <p>Trova alimenti e accessori in eccedenza messi a disposizione dai negozi della tua zona a prezzi di recupero. Adotta una ciotola, azzera gli sprechi della tua città e sostieni gli animali più bisognosi.</p>
+        </div>
+        <div class="feature-card negozi">
+            <h3>🏪 Per i Negozi</h3>
+            <p>Non buttare la merce vicina alla scadenza o con difetti di packaging. Carica velocemente i lotti disponibili sulla piattaforma, riduci le perdite commerciali e ottimizza lo smaltimento dei tuoi stock di magazzino.</p>
+        </div>
+        <div class="feature-card associazioni">
+            <h3>🐾 Per le Associazioni</h3>
+            <p>Ricevi donazioni dirette e accedi prioritariamente ai lotti di cibo umido o secco invenduti messi a disposizione dalle grandi aziende e dai canali di distribuzione locali per i rifugi o le colonie feline.</p>
+        </div>
+    </div>
+
+    <div class="cta-bottom">
+        <a href="signup.html" class="btn-cta">Inizia Ora</a>
+    </div>
+</body>
+</html>
