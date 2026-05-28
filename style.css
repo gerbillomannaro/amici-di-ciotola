@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght=300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap');
 
 body {
     background-color: #faf9f6;
@@ -25,8 +25,9 @@ body {
     margin-bottom: 20px;
 }
 
-img[src="logo verticale.png"] { height: 110px; width: auto; }
-img[src="logo orizzontale.png"] { height: 65px; width: auto; }
+/* Selettori aggiornati senza spazi */
+img[src="logo-verticale.png"] { height: 110px; width: auto; }
+img[src="logo-orizzontale.png"] { height: 65px; width: auto; }
 
 h2 {
     color: #1A3017;
