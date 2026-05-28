@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Amici di Ciotola</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="card">
+        <div class="logo-container">
+            <img src="logo orizzontale.png" alt="Amici di Ciotola">
+        </div>
+        <h2>Bentornato</h2>
+        <p>Accedi per gestire le tue ciotole.</p>
+        <form id="loginForm">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Inserisci la tua email" required>
+            <label>Password</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+            <button type="submit" class="btn-verde" id="loginBtn">Accedi</button>
+            <a href="progetto.html" style="display: block; text-align: center; margin-top: 18px; color: #70b01a; text-decoration: none; font-weight: 600; font-size: 14px;">Scopri il progetto</a>
+        </form>
+        <div class="footer-links"><p>Non hai un account? <a href="signup.html">Registrati ora</a></p></div>
+    </div>
+
+    <script>
+        const _supabase = supabase.createClient("https://esgzkoizauazzansczqp.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzZ3prb2l6YXVhenphbnNjenFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5Njg4MjgsImV4cCI6MjA5NTU0NDgyOH0.Zy_gwu-ChudRrkqs3U58CXrk_5mKthvbqpiGj_f-ukI");
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            btn.innerText = "Accesso...";
+
+            const { data, error } = await _supabase.auth.signInWithPassword({
+                email: document.getElementById('email').value.trim(),
+                password: document.getElementById('password').value
+            });
+
+            if (error) {
+                alert(error.message);
+                btn.innerText = "Accedi";
+                return;
+            }
+
+            const { data: prof } = await _supabase.from('profili').select('tipo_utente').eq('id', data.user.id).single();
+            
+            const routes = { 'A': 'home-privati.html', 'B': 'dashboard-negozio.html', 'C': 'home-associazioni.html' };
+            window.location.href = routes[prof.tipo_utente] || 'index.html';
+        });
+    </script>
+</body>
+</html>
