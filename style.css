@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght=300;400;600;700;800&display=swap');
+
+body {
+    background-color: #faf9f6;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.card {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+img[src="logo verticale.png"] { height: 110px; width: auto; }
+img[src="logo orizzontale.png"] { height: 65px; width: auto; }
+
+h2 {
+    color: #1A3017;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px 0 5px 0;
+}
+
+p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+form { text-align: left; }
+
+.sezione-form {
+    font-weight: 700;
+    font-size: 13px;
+    color: #006400;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    color: #444;
+    margin-top: 12px;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    margin-top: 6px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.btn-verde {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #70b01a;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.footer-links {
+    margin-top: 25px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.footer-links a { color: #006400; text-decoration: none; font-weight: 700; }
